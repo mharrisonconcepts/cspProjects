@@ -5,13 +5,18 @@ void setup() {
   Serial.println("Hello, How are you?");  //tells the serial port to display the message "Hello, How are you?"
   Serial.println("Send 'On' to turn on the LED.");
   Serial.println("Send 'Off' to turn off the LED.");
+  
 }
 // the loop function runs over and over again forever
 void loop() {
+  delay(5000);
   if (Serial.readString() == "On") {
-    digitalWrite(13, HIGH);
+    digitalWrite(13, HIGH); //tells the Arduino to look for the string "On" before turning on the LED
+    Serial.println("On");
+    delay(1000);
   }
   else if (Serial.readString() == "Off") {
-    digitalWrite(13, LOW);
+    digitalWrite(13, LOW);  //tells the Arduino to look for the string "Off" before turning off the LED
   }
+  Serial.println("Restarting...");
 }
