@@ -8,10 +8,10 @@ void setup() {
 }
 // the loop function runs over and over again forever
 void loop() {
-  digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
-  Serial.println("On");   //tell the serial port to display the message "On"
-  delay(1000);                       // wait for a second
-  digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
-  Serial.println("Off");    //tell the serial port to display the message "Off"
-  delay(1000);                       // wait for a second
+  if (Serial.readString() == "On") {
+    digitalWrite(13, HIGH);
+  }
+  else if (Serial.readString() == "Off") {
+    digitalWrite(13, LOW);
+  }
 }
