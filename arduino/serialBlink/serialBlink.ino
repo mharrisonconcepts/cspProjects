@@ -9,14 +9,12 @@ void setup() {
 }
 // the loop function runs over and over again forever
 void loop() {
-  delay(5000);
   if (Serial.readString() == "On") {
     digitalWrite(13, HIGH); //tells the Arduino to look for the string "On" before turning on the LED
-    Serial.println("On");
-    delay(1000);
+    Serial.println("You turned it on bro");
   }
   else if (Serial.readString() == "Off") {
     digitalWrite(13, LOW);  //tells the Arduino to look for the string "Off" before turning off the LED
+    Serial.println("You just turned off the LED");
   }
-  Serial.println("Restarting...");
 }
