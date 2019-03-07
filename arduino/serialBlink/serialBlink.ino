@@ -11,16 +11,16 @@ void setup() {
 // the loop function runs over and over again forever
 void loop()
 { if (Serial.available() > 0) {
-    String command;
-    command = Serial.readString();
-    command.trim();
-    if (String(command) == "On") {
+    String command; //identifies the String in the buffer as the command to later link to the feedback provided by the Arduino
+    command = Serial.readString();  //tells the Arduino where to look for the command
+    command.trim(); //trims unnecesary characters from the serial moniter input
+    if (String(command) == "On") { //tells the Arduino to look at the String "command" and gives it an option for a command
       digitalWrite(13, HIGH); //tells the Arduino to look for the string "On" before turning on the LED
-      Serial.println("You turned it on bro");
+      Serial.println("You turned it on bro"); //provides feedback in the serial moniter telling you what you did
     }
-    else if (String(command) == "Off") {
+    else if (String(command) == "Off") {  //tells the Arduino to look at the String "command" and gives it an option for a command
       digitalWrite(13, LOW);  //tells the Arduino to look for the string "Off" before turning off the LED
-      Serial.println("You just turned off the LED");
+      Serial.println("You just turned off the LED");  //provides feedback in the serial moniter telling you what you did
     }
 
   }
