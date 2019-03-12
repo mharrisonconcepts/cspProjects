@@ -5,7 +5,6 @@ void setup() { //runs code contained once at startup
   Serial.println("Hello, How are you?");  //tells the serial port to display the message "Hello, How are you?"
   Serial.println("Send 'On' to turn on the LED.");  //tells the serial port to display the message "Send 'On' to turn on the LED."
   Serial.println("Send 'Off' to turn off the LED.");  //tells the serial port to display the message "Send 'Off' to turn off the LED."
-
 }
 
 void loop() //runs code contained repeatedly
@@ -21,6 +20,5 @@ void loop() //runs code contained repeatedly
       digitalWrite(13, LOW);  //tells the Arduino to look for the string "Off" before turning off the LED
       Serial.println("You just turned off the LED");  //provides feedback in the serial moniter telling you what you did
     }
-
   }
 }
