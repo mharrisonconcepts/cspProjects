@@ -1,16 +1,15 @@
-void setup() {
-  Serial.begin(9600);
-  // initialize digital pin LED_BUILTIN as an output.
-  Serial.setTimeout(10);
-  pinMode(13, OUTPUT);
+void setup() { //runs code contained once at startup
+  Serial.begin(9600); // initialize digital pin LED_BUILTIN as an output.
+  Serial.setTimeout(10);  //tells the serial buffer to refresh every 10 milliseconds
+  pinMode(13, OUTPUT);  //sets pin 13 as the output to provide feedback
   Serial.println("Hello, How are you?");  //tells the serial port to display the message "Hello, How are you?"
-  Serial.println("Send 'On' to turn on the LED.");
-  Serial.println("Send 'Off' to turn off the LED.");
+  Serial.println("Send 'On' to turn on the LED.");  //tells the serial port to display the message "Send 'On' to turn on the LED."
+  Serial.println("Send 'Off' to turn off the LED.");  //tells the serial port to display the message "Send 'Off' to turn off the LED."
 
 }
-// the loop function runs over and over again forever
-void loop()
-{ if (Serial.available() > 0) {
+
+void loop() //runs code contained repeatedly
+{ if (Serial.available() > 0) { //gets the number of bytes available for reading from the serial buffer
     String command; //identifies the String in the buffer as the command to later link to the feedback provided by the Arduino
     command = Serial.readString();  //tells the Arduino where to look for the command
     command.trim(); //trims unnecesary characters from the serial moniter input
