@@ -8,6 +8,9 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  while (Serial.available() > 0) {
+    char inbound = Serial.read();
+    Serial.print(inbound, OCT);
+    Serial.println("");
+  }
 }
