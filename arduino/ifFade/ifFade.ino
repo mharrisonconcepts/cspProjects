@@ -1,14 +1,14 @@
-int lightValue = 0; //sets "lightValue" to 0 at the beginning of the program
-int delta = 1; //sets "delta" to 1
+int lightValue = 0; 
+int delta = 1; 
 
-void setup() { //runs code once
-  Serial.begin(9600); //sets serial port as output
-  Serial.setTimeout(10); //tells the serial buffer to refresh every 10 milliseconds
-  pinMode(9, OUTPUT); //sets pin 9 as an output
+void setup() {
+  Serial.begin(9600);
+  Serial.setTimeout(10); 
+  pinMode(9, OUTPUT); 
 }
 
-void loop() { //runs code repeatedly
-  lightValue = lightValue + delta; //specifies the value of "lightValue telling the 
+void loop() { 
+  lightValue = lightValue + delta; 
   if (lightValue <= 0 || lightValue >= 255) {
     delta = -delta;
   }
@@ -16,3 +16,6 @@ void loop() { //runs code repeatedly
   Serial.println(lightValue);
   delay(10);
 }
+// This program sets pin 9 as an output. It loops codes that evaluates what the output of pin 9 is, and if the value is
+// 0 or less it adds "delta", which is specified as 1. If/when the value is 255 or greater, the program adds -delta, or the
+// negation of delta's last value.
