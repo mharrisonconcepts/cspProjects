@@ -1,3 +1,7 @@
+// This program sets pin 9 as an output. It loops codes that evaluates what the output of pin 9 is, and if the value is
+// 0 or less it adds "delta", which is specified as 1. If/when the value is 255 or greater, the program adds -delta, or the
+// negation of delta's last value.
+
 int lightValue = 0; 
 int delta = 1; 
 
@@ -16,6 +20,3 @@ void loop() {
   Serial.println(lightValue);
   delay(10);
 }
-// This program sets pin 9 as an output. It loops codes that evaluates what the output of pin 9 is, and if the value is
-// 0 or less it adds "delta", which is specified as 1. If/when the value is 255 or greater, the program adds -delta, or the
-// negation of delta's last value.
