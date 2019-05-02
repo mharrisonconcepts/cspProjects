@@ -8,9 +8,13 @@ void setup() {
 }
 
 void loop() {
+  cleanData();
+}
+void cleanData() {
   while (Serial.available() > 0) {
     char inbound = Serial.read();
-    Serial.print(inbound, OCT);
-    Serial.println("");
+    if (isGraph(inbound)) {
+      Serial.println(inbound);
+    }
   }
 }
