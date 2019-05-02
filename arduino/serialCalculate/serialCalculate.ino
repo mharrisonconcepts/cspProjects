@@ -2,7 +2,7 @@ int number1;
 char sign;
 int number2;
 int result;
-char cleanData[32];
+int integers[32];
 bool newData = false;
 int count = 0;
 
@@ -11,23 +11,26 @@ void setup() {
 }
 
 void loop() {
-  cleanData1();
-  printCleanData();
+  cleanData();
+  parseData();
 }
-void cleanData1() {
+void cleanData() {
   while (Serial.available() > 0) {
-    char inbound = Serial.read();
+    int inbound = Serial.read();
     if (isGraph(inbound)) {
-      newData = true;
-      cleanData[count] = inbound;
+      integers[count] = inbound;
       count++;
+      newData = true;
     }
   }
 }
-void printCleanData() {
+void parseData() {
   if (newData == true) {
-    Serial.println(cleanData);
-    char cleanData[32] = "";
+    number1 = integers[0];
+    number2 = integers[1];
+    Serial.println(number1);
+    Serial.println(sign);
+    Serial.println(number2);
     newData = false;
   }
 }
