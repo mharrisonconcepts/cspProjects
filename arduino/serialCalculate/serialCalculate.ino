@@ -2,19 +2,32 @@ int number1;
 char sign;
 int number2;
 int result;
+char cleanData[32];
+bool newData = false;
+int count = 0;
 
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
-  cleanData();
+  cleanData1();
+  printCleanData();
 }
-void cleanData() {
+void cleanData1() {
   while (Serial.available() > 0) {
     char inbound = Serial.read();
     if (isGraph(inbound)) {
-      Serial.println(inbound);
+      newData = true;
+      cleanData[count] = inbound;
+      count++;
     }
+  }
+}
+void printCleanData() {
+  if (newData == true) {
+    Serial.println(cleanData);
+    char cleanData[32] = "";
+    newData = false;
   }
 }
