@@ -16,6 +16,7 @@ public class NumberGuess {
         while (!correct) {
 
             System.out.println("GUESS:  ");
+            guess = keyboard.nextInt();
 
             if (guess == secretNum) {
                 correct = true;
