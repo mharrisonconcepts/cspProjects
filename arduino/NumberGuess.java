@@ -10,8 +10,8 @@ public class NumberGuess {
 
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.print("GIVE ME SECRET NUMBER:  ");
-        secretNum = keyboard.nextInt();
+        System.out.print("GENERATING NUMBER...");
+        secretNum = (int)(Math.random()*((20-0)+1))+0;
 
         while (!correct) {
 
