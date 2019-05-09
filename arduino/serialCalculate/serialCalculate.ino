@@ -15,12 +15,21 @@ void loop() {
   parseData();
 }
 void cleanData() {
+  count = 0;
   while (Serial.available() > 0) {
-    int inbound = Serial.read();
-    if (isGraph(inbound)) {
-      integers[count] = inbound;
+    newData = true;
+    if (isDigit(Serial.peek()) == true) {
+      integers[count] = Serial.parseInt();
       count++;
-      newData = true;
+      Serial.print("The current count is ");
+      Serial.println(count);
+    }
+    else if (isGraph(Serial.peek()) == true) {
+      sign = Serial.read();
+      Serial.println(sign);
+    }
+    else {
+      Serial.read();
     }
   }
 }
