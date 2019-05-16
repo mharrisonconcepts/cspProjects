@@ -5,6 +5,8 @@ int result;
 int integers[32];
 bool newData = false;
 int count = 0;
+bool readyToPrint = false;
+bool readyToCalculate = false;
 
 void setup() {
   Serial.begin(9600);
@@ -14,6 +16,8 @@ void loop() {
   cleanData();
   parseData();
   calculate();
+  concatenateResultsAndPrint();
+  readyToCalculate = false;
 }
 void cleanData() {
   count = 0;
@@ -34,6 +38,7 @@ void cleanData() {
     else {
       Serial.read();
     }
+    bool newData = true;
   }
 }
 void parseData() {
@@ -44,11 +49,10 @@ void parseData() {
     Serial.println(sign);
     Serial.println(number2);
     newData = false;
+    readyToCalculate = true;
   }
 }
 void calculate() {
-  bool readyToCalculate = false;
-  bool readyToPrint = false;
   if (readyToCalculate == true) {
     Serial.println("readyToCalculate is running");
     switch (sign) {
@@ -75,5 +79,13 @@ void calculate() {
         readyToPrint = false;
         break;
     }
+    bool readyToPrint = true;
   }
 }
+void concatenateResultsAndPrint() {
+  if (readyToPrint == true){
+    String (printCalculation) = String(number1) + ' ' + String(sign) + ' ' + String(number2) + String(" = ") + String(result);
+    Serial.println(printCalculation);
+    readyToPrint = false;
+    }
+  }
