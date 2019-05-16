@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class GuessGame {
+public class NumberGuess {
 
     public static void main(String[] args){
         
@@ -10,22 +10,25 @@ public class GuessGame {
 
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.print("GIVE ME SECRET NUMBER:  ");
-        secretNum = keyboard.nextInt();
+        System.out.print("GENERATING NUMBER...");
+        secretNum = (int)(Math.random()*((100-0)+1))+0;
 
         while (!correct) {
 
             System.out.println("GUESS:  ");
+            guess = keyboard.nextInt();
 
             if (guess == secretNum) {
                 correct = true;
-                System.out.println("You are right!");
+                String yes = "You are CORRECT!!!!";
+                System.out.println(yes);
             }
             else if (guess < secretNum) {
-                System.out.println("HIGHER");
+                String a = "You are too low.";
+                System.out.println(a);
             }
             else if (guess > secretNum) {
-                String x = "LOWER";
+                String x = "You are too high.";
                 System.out.println(x);
             }
         }
