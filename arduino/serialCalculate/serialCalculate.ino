@@ -13,6 +13,7 @@ void setup() {
 }
 
 void loop() {
+  char sign = ' ';
   cleanData();
   parseData();
   calculate();
@@ -70,10 +71,12 @@ void calculate() {
         result = number1 * number2;
         readyToPrint = true;
         Serial.println("* broke");
+        break;
       case '/':
         result = number1 / number2;
         readyToPrint = true;
         Serial.println("/ broke");
+        break;
       default:
         Serial.println("This operation is not supported. Please try again.");
         readyToPrint = false;
