@@ -1,8 +1,8 @@
-int number1;
+long number1;
 char sign;
-int number2;
-int result;
-int integers[32];
+long number2;
+long result;
+long integers[32];
 bool newData = false;
 int count = 0;
 bool readyToPrint = false;
