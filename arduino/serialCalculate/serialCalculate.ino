@@ -2,7 +2,7 @@ long number1;
 char sign;
 long number2;
 long result;
-long integers[32];
+long integers[2];
 bool newData = false;
 int count = 0;
 bool readyToPrint = false;
