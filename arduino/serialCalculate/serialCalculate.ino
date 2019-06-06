@@ -7,6 +7,7 @@ bool newData = false;
 int count = 0;
 bool readyToPrint = false;
 bool readyToCalculate = false;
+bool instructions = true;
 
 void setup() {
   Serial.begin(9600);
@@ -14,11 +15,16 @@ void setup() {
 
 void loop() {
   char sign = ' ';
+  while (instructions = true) {
+  Serial.println("Enter integers with either '+' '-' '/' or '*' in between the integers");
+  
+  }
   cleanData();
   parseData();
   calculate();
   concatenateResultsAndPrint();
   readyToCalculate = false;
+  instructions = false;
 }
 void cleanData() {
   count = 0;
